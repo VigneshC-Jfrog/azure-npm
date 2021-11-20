@@ -35,3 +35,14 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
     verbose: true
+- task: ArtifactoryGenericUpload@2
+  inputs:
+    artifactoryService: 'gaja'
+    specSource: 'file'
+    file: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
+    dryRun: true
+    failNoOp: true
