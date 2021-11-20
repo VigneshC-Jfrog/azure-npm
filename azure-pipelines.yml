@@ -38,8 +38,16 @@ steps:
 - task: ArtifactoryGenericUpload@2
   inputs:
     artifactoryService: 'gaja'
-    specSource: 'file'
-    file: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    specSource: 'taskConfiguration'
+    fileSpec: |
+      {
+        "files": [
+          {
+            "pattern": "$(Build.ArtifactStagingDirectory)\*.zip",
+            "target": "$(PathToArchive)"
+          }
+        ]
+      }
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
