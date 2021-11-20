@@ -43,8 +43,8 @@ steps:
       {
         "files": [
           {
-            "pattern": "$(Build.ArtifactStagingDirectory)\*.zip",
-            "target": "$(PathToArchive)"
+            "pattern": "/home/vsts/work/1/a/31.zip",
+            "target": "generic-local/"
           }
         ]
       }
