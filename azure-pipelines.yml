@@ -17,6 +17,10 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: Bash@3
+  inputs:
+    filePath: '$(System.DefaultWorkingDirectory'
+    arguments: 'env | sort'
 - task: ArtifactoryNpm@2
   inputs:
     command: 'install'
@@ -27,6 +31,14 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
+- task: ArtifactoryNpm@2
+  inputs:
+    command: 'pack and publish'
+    artifactoryService: 'gaja'
+    targetRepo: 'npm'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
