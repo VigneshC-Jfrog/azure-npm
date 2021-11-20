@@ -43,7 +43,7 @@ steps:
       {
         "files": [
           {
-            "pattern": "/home/vsts/work/1/a/32.zip",
+            "pattern": "/home/vsts/work/1/a/*.zip",
             "target": "generic-local/"
           }
         ]
