@@ -27,8 +27,11 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
-- task: ArtifactoryPublishBuildInfo@1
+- task: ArtifactoryNpm@2
   inputs:
+    command: 'pack and publish'
     artifactoryService: 'gaja'
+    targetRepo: 'npm'
+    collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
