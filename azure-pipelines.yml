@@ -43,7 +43,7 @@ steps:
       {
         "files": [
           {
-            "pattern": "/home/vsts/work/1/a/31.zip",
+            "pattern": "/home/vsts/work/1/a/32.zip",
             "target": "generic-local/"
           }
         ]
@@ -52,5 +52,5 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
-    dryRun: true
+    dryRun: false
     failNoOp: true
