@@ -27,16 +27,11 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
-- task: ArtifactoryNpm@2
+- task: ArchiveFiles@2
   inputs:
-    command: 'pack and publish'
-    artifactoryService: 'gaja'
-    targetRepo: 'npm'
-    collectBuildInfo: true
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-- task: ArtifactoryPublishBuildInfo@1
-  inputs:
-    artifactoryService: 'gaja'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+    verbose: true
