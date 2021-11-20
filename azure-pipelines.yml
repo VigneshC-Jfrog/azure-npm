@@ -19,8 +19,8 @@ steps:
   displayName: 'Run a multi-line script'
 - task: Bash@3
   inputs:
-    filePath: '$(System.DefaultWorkingDirectory'
-    arguments: 'env | sort'
+    targetType: 'inline'
+    script: 'env | sort'
 - task: ArtifactoryNpm@2
   inputs:
     command: 'install'
