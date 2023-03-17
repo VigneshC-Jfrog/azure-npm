@@ -1,25 +1,24 @@
 trigger:
  - master
 steps:
-    - task: JFrogNpm@1
-      inputs:
-        command: 'ci'
-        artifactoryConnection: 'dinesh1'
-        sourceRepo: 'dinesh-npm-remote'
-        arguments: ''
-        collectBuildInfo: true
-        threads: '1'
-        buildName: '$(Build.DefinitionName)'
-        buildNumber: '$(Build.BuildNumber)'
-        includeEnvVars: true
-    - task: JFrogPublishBuildInfo@1
-      inputs:
-        artifactoryConnection: 'dinesh1'
-        buildName: '$(Build.DefinitionName)'
-        buildNumber: '$(Build.BuildNumber)'
-    - task: ArtifactoryXrayScan@1
-      inputs:
-        artifactoryService: 'dinesh1'
-        buildName: '$(Build.DefinitionName)'
-        buildNumber: '$(Build.BuildNumber)'
-        allowFailBuild: false
+- task: JFrogNpm@1
+  inputs:
+    command: 'ci'
+    artifactoryConnection: 'dinesh'
+    sourceRepo: 'dinesh-npm'
+    collectBuildInfo: true
+    threads: '1'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+- task: JFrogPublishBuildInfo@1
+  inputs:
+    artifactoryConnection: 'dinesh'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+
+- task: ArtifactoryXrayScan@1
+  inputs:
+    artifactoryService: 'dinesh1'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    allowFailBuild: true
