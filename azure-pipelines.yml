@@ -3,7 +3,7 @@ trigger:
 steps:
 - task: JFrogNpm@1
   inputs:
-    command: 'ci'
+    command: 'install'
     artifactoryConnection: 'dinesh'
     sourceRepo: 'dinesh-npm'
     collectBuildInfo: true
