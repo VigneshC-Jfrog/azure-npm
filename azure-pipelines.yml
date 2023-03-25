@@ -11,6 +11,7 @@ steps:
     threads: '1'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
+    projectKey: 'pro-test'
 - task: JFrogPublishBuildInfo@1
   inputs:
     artifactoryConnection: 'dinesh'
