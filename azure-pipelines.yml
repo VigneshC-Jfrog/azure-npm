@@ -13,5 +13,5 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'find /home/vsts/work/1/* -name npm-example-0.0.3.tgz'
+    script: 'sudo find / -name npm-example-0.0.3.tgz'
 
