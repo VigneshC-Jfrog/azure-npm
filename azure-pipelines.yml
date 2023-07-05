@@ -3,7 +3,8 @@ pool:
 steps:
 - task: JFrogNpm@1
   inputs:
-    command: 'pack and publish'
+    command: 'custom'
+    customCommandAndArgs: 'pack'
     artifactoryConnection: 'npm'
     targetRepo: 'harish-npm-local'
     collectBuildInfo: true
