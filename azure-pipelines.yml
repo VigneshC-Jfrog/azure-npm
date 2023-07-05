@@ -12,6 +12,10 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'ls -lart $(System.ArtifactsDirectory)'
 - task: JFrogGenericArtifacts@1
   inputs:
     command: 'Upload'
@@ -27,7 +31,3 @@ steps:
         ]
       }
     failNoOp: true
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'ls -lart *'
