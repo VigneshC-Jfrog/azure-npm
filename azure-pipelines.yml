@@ -5,17 +5,18 @@ pool:
 steps:
 - task: JFrogNpm@1
   inputs:
-    command: 'pack and publish'
+    command: 'install'
     artifactoryConnection: 'npm'
-    targetRepo: 'dinesh-npm-virtual'
+    sourceRepo: 'harish-npm-virtual'
     collectBuildInfo: true
+    threads: '1'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'ls -lart $(System.ArtifactsDirectory)'
+    script: 'find / -name npm-example-0.0.3.tgz'
 - task: JFrogGenericArtifacts@1
   inputs:
     command: 'Upload'
