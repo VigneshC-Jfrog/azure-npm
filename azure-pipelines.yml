@@ -3,18 +3,16 @@ trigger:
 pool:
   vmImage: 'Ubuntu-18.04'
 steps:
-- task: ArtifactoryNpm@2
+- task: JFrogNpm@1
   inputs:
-    command: 'install'
-    artifactoryService: 'dinesh'
-    sourceRepo: 'dinesh-npm-remote'
-- task: ArtifactoryNpm@2
-  inputs:
-    command: 'ci'
-    artifactoryService: 'dinesh'
-    sourceRepo: 'dinesh-npm-remote'
-    workingFolder: 'npm-example/package.json'
+    command: 'pack and publish'
+    artifactoryConnection: 'npm'
+    targetRepo: 'dinesh-npm-virtual'
     collectBuildInfo: true
-    threads: '1'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'ls -lart *'
