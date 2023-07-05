@@ -7,9 +7,8 @@ steps:
   inputs:
     command: 'pack and publish'
     artifactoryConnection: 'npm'
-    sourceRepo: 'harish-npm-virtual'
+    targetRepo: 'harish-npm-local'
     collectBuildInfo: true
-    threads: '1'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
