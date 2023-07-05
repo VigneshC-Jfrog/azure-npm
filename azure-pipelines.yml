@@ -21,7 +21,7 @@ steps:
       {
         "files": [
           {
-            "pattern": "/home/vsts/work/1/s/npm-example-0.0.3.tgz",
+            "pattern": "$(System.ArtifactsDirectory)/npm-example-0.0.3.tgz",
             "target": "harish-npm-local/level1/level2/npm-example-0.0.3.tgz"
           }
         ]
