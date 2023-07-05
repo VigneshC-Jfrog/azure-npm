@@ -6,6 +6,7 @@ steps:
     command: 'custom'
     customCommandAndArgs: 'pack'
     artifactoryConnection: 'npm'
+    sourceRepo: 'harish-npm-virtual'
     targetRepo: 'harish-npm-local'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
