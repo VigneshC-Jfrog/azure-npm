@@ -31,3 +31,15 @@ steps:
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
     failNoOp: true
+- task: JFrogBuildPromotion@1
+  inputs:
+    artifactoryConnection: 'shivani'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    targetRepo: 'shivani-promotion-local'
+    status: 'Released'
+    comment: 'Released'
+    sourceRepo: 'shivani-npm-local'
+    includeDependencies: false
+    copy: true
+    dryRun: false
