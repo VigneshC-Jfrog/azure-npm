@@ -12,7 +12,22 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
-- task: Bash@3
+- task: JFrogGenericArtifacts@1
   inputs:
-    targetType: 'inline'
-    script: 'ls -lart *'
+    command: 'Upload'
+    connection: 'shivani'
+    specSource: 'taskConfiguration'
+    fileSpec: |
+      {
+        "files": [
+          {
+            "pattern": "npm-example-0.0.3.tgz",
+            "target": "shivani-npm-local/folder1/folder2/npm-example-0.0.3.tgz"
+          }
+        ]
+      }
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
+    failNoOp: true
