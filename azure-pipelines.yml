@@ -1,13 +1,13 @@
 pool:
-  vmImage: 'Ubuntu-20.04'
+  vmImage: 'ubuntu-20.04'
 steps:
 - task: JFrogNpm@1
   inputs:
     command: 'custom'
     customCommandAndArgs: 'pack'
-    artifactoryConnection: 'npm'
-    sourceRepo: 'harish-npm-virtual'
-    targetRepo: 'harish-npm-local'
+    artifactoryConnection: 'shivani'
+    sourceRepo: 'shivani-npm'
+    targetRepo: 'shivani-npm-local'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
@@ -16,4 +16,3 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'sudo find / -name npm-example-0.0.3.tgz'
-
